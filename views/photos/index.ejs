@@ -1,0 +1,38 @@
+<html>
+<head>
+	<title><%= title %></title>
+	<% include ../partials/head %>
+	<style type="text/css">
+		body
+		{
+			margin: 60px 30px 20px 30px;
+		}
+		img
+		{
+			height: 200px;
+			width: auto;
+			cursor: pointer;
+		}
+		hr
+		{
+			width: 50%;
+			background-color: gray;
+		}
+	</style>
+</head>
+<body>
+	<% include ../partials/header %>
+	<h1><%= title%></h1>
+
+	<center>
+		<% photos.forEach(function(photo) { %>
+			<div class="photo">
+				<h2><%=photo.name.substr(0, photo.name.lastIndexOf('.'))%></h2>
+				<img src='<%=photo.name%>' onclick="window.open(this.src, '_blank')"/>
+			</div>
+			<h3><a href="download/<%=photo.name%>">Download</a></h3>
+			<hr>
+		<% }) %>
+	</center>
+</body>
+</html>

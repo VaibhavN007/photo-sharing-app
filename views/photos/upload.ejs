@@ -1,0 +1,27 @@
+<html>
+<head>
+	<title><%= title %></title>
+	<% include ../partials/head %>
+
+	<link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+	<% include ../partials/header %>
+	<h1><%= title %></h1>
+	
+	<% if(error) {%>
+		<div class="alert alert-danger">
+			<%= error %>
+		</div>
+	<% } %>
+	<p>Upload a photo to your account below.</p>
+	
+	<form method='post' enctype='multipart/form-data' action='/photos/upload'>
+		<p><input type='text', name='img_name', placeholder='Name'/></p>
+		<p><input type='file', name='img'/></p>
+		<p><input type='submit', value='Upload'/></p>
+	</form>
+</body>
+
+</html>
